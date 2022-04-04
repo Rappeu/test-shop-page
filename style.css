@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+:root {
+  font-size: 62.5%;
+  --main-clr: #fff;
+  --scnd-clr: #000;
+  --accent-clr: #ff0000;
+
+  --dark-time: .75s;
+  --hamburger-time: .5s;
+}
+
+body {
+  background-color: var(--main-clr);
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  transition: background-color 0.5s ease;
+  overflow-x: hidden;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  height: 5rem;
+}
+
+.logo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  padding: 0 1rem;
+  text-decoration: none;
+  color: var(--scnd-clr);
+  z-index: 1;
+  transition: color var(--hamburger-time) ease;
+}
+
+#navLinks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--scnd-clr);
+  transition: background-color var(--dark-time) ease;
+}
+
+#navLinks.dark {
+  background-color: var(--scnd-clr);
+}
+
+.navLink {
+  font-size: 2.2rem;
+  height: 100%;
+  background-color: transparent;
+  min-width: 5rem;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  transition: background-color var(--dark-time) ease;
+}
+
+.navLink a {
+  text-decoration: none;
+  color: var(--main-clr);
+}
+
+.navLink:nth-child(5) a{
+  color: var(--accent-clr);
+  font-weight: bold;
+}
+
+#darkToggle {
+  width: 5rem;
+  height: 5rem;
+  background-color: var(--scnd-clr);
+  border: none;
+  transition: background-color var(--dark-time) ease;
+}
+
+#darkToggle img {
+  width: 3rem;
+  height: auto;
+}
+
+#darkToggle:hover {
+  cursor: pointer;
+}
+
+
+.darkToggleImg {
+  -webkit-filter: invert(99%) sepia(58%) saturate(351%) hue-rotate(173deg) brightness(117%) contrast(100%);
+  filter: invert(99%) sepia(58%) saturate(351%) hue-rotate(173deg) brightness(117%) contrast(100%);
+}
+
+.darkToggleImg.dark {
+  -webkit-filter: invert(0%) sepia(6%) saturate(7475%) hue-rotate(284deg) brightness(94%) contrast(106%);
+  filter: invert(0%) sepia(6%) saturate(7475%) hue-rotate(284deg) brightness(94%) contrast(106%);
+}
+
+#hamburgerMenu {
+  position: fixed;
+  right: 0;
+  width: 5rem;
+  height: 5rem;
+  display: none;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: var(--main-clr);
+  padding: 0;
+  border: none;
+}
+
+#hamburgerMenu:hover {
+  cursor: pointer;
+}
+
+.hamburgerLine {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 4rem;
+  height: 0.5rem;
+  background-color: var(--scnd-clr);
+  border-radius: .5rem;
+  transition: background-color var(--hamburger-time) ease;
+}
+
+.hamburgerLine::before {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 4rem;
+  height: 0.5rem;
+  background-color: var(--scnd-clr);
+  -webkit-transform: translateY(-1.5rem);
+  transform: translateY(-1.5rem);
+  border-radius: .5rem;
+  transition: background-color var(--hamburger-time) ease, transform var(--hamburger-time) ease;
+}
+
+.hamburgerLine::after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 4rem;
+  height: 0.5rem;
+  background-color: var(--scnd-clr);
+  -webkit-transform: translateY(1.5rem);
+  transform: translateY(1.5rem);
+  border-radius: .5rem;
+  transition: background-color var(--hamburger-time) ease, transform var(--hamburger-time) ease;
+}
+
+@media screen and (max-width: 800px) {
+  .logo.hamburgerOpen {
+    color: var(--main-clr);
+  }
+  #navLinks{
+    position: fixed;
+    right: -80rem;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-top: 2rem;
+    transition: background-color var(--dark-time) ease, right var(--hamburger-time) ease-in-out;
+  }
+  #navLinks.hamburgerOpen{
+    right: 0;
+  }
+  #hamburgerMenu {
+    display: flex;
+    background-color: transparent;
+  }
+  .hamburgerLine.hamburgerOpen {
+    background-color: transparent;
+  }
+  .hamburgerLine.hamburgerOpen::before {
+    background-color: var(--main-clr);
+    transform: rotate(-45deg);
+  }
+  .hamburgerLine.hamburgerOpen::after {
+    background-color: var(--main-clr);
+    transform: rotate(45deg);
+  }
+}
