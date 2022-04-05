@@ -195,3 +195,36 @@ nav {
     transform: rotate(45deg);
   }
 }
+
+
+#cart{
+  width: 5rem;
+  height: 5rem;
+  background-color: var(--scnd-clr);
+  border: none;
+  transition: background-color var(--dark-time) ease;
+}
+
+#cart:hover {
+  cursor: pointer;
+}
+
+.cartImg {
+  width: 3rem;
+  height: auto;
+}
+
+.cartImg {
+  -webkit-filter: invert(99%) sepia(58%) saturate(351%) hue-rotate(173deg) brightness(117%) contrast(100%);
+  filter: invert(99%) sepia(58%) saturate(351%) hue-rotate(173deg) brightness(117%) contrast(100%);
+}
+
+.cartImg.dark {
+  -webkit-filter: invert(0%) sepia(6%) saturate(7475%) hue-rotate(284deg) brightness(94%) contrast(106%);
+  filter: invert(0%) sepia(6%) saturate(7475%) hue-rotate(284deg) brightness(94%) contrast(106%);
+}
+
+#navLinkEnd {
+  display: flex;
+  justify-content: space-around;
+}

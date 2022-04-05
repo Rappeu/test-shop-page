@@ -2,6 +2,7 @@ const root = document.documentElement;
 const darkToggle = document.getElementById('darkToggle');
 const darkToggleImg = document.querySelector('.darkToggleImg');
 const navLinks = document.querySelector('#navLinks');
+const cart = document.querySelector('.cartImg');
 
 
 let darkMode = false;
@@ -14,6 +15,7 @@ darkToggle.addEventListener('click', () => {
         darkToggle.classList.add('dark');
         darkToggleImg.classList.add('dark');
         navLinks.classList.add('dark');
+        cart.classList.add('dark');
         darkMode = true;
         console.log('sheesh');
     } else {
@@ -22,6 +24,7 @@ darkToggle.addEventListener('click', () => {
         darkToggle.classList.remove('dark');
         darkToggleImg.classList.remove('dark');
         navLinks.classList.remove('dark');
+        cart.classList.remove('dark');
         darkMode = false;
     }
 });
